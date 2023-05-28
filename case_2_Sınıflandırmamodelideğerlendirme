@@ -1,0 +1,35 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+from sklearn.preprocessing import RobustScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix, classification_report, plot_roc_curve
+from sklearn.model_selection import train_test_split, cross_validate
+
+pd.set_option('display.max_columns', None)
+pd.set_option('display.float_format', lambda x: '%.3f' % x)
+pd.set_option('display.width', 500)
+
+tablo = [[1, 0.7],
+         [1, 0.8],
+         [1, 0.65],
+         [1, 0.9],
+         [1, 0.45],
+         [1, 0.5],
+         [0, 0.55],
+         [0, 0.35],
+         [0, 0.4],
+         [0, 0.25]
+         ]
+df = pd.DataFrame(tablo, columns=['Gercek_Deger', 'Model_Olasılık_Tahmini'])
+df
+
+#Müşterinin churn olup olmama durumunu tahminleyen bir
+#sınıflandırma modeli oluşturulmuştur. 10 test verisi gözleminin
+#gerçek değerleri ve modelin tahmin ettiği olasılık değerleri verilmiştir.
+#
+#- Eşik değerini 0.5 alarak confusion matrix oluşturunuz.
+#- Accuracy, Recall, Precision, F1 Skorlarını hesaplayınız
